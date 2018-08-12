@@ -1,0 +1,41 @@
+<div class="container col-6">
+  <h1>Welcome to Liber Store</h1>
+
+  Search query:
+  <input  [(ngModel)]="query"
+          class="form-control"/> <br>
+  <button class="btn btn-outline-dark"
+          (click)="search(query)">
+    Search
+  </button>
+<!--
+  <div class="card-deck">
+
+    <div class="card"
+         *ngFor="let book of results.items">
+      <img class="card-img-top"
+            src={{book.volumeInfo.imageLinks.smallThumbnail}}>
+      <div class="card-body">
+        <div class="card-title">
+          {{book.volumeInfo.title}}
+        </div>
+      </div>
+    </div>
+
+  </div>-->
+
+  <div class="card-deck">
+
+    <div class="card w-25"
+         *ngFor = "let course of results.items">
+
+      <div class="card-body">
+        <h4 class="card-title">{{course.volumeInfo.title}}</h4>
+        <p class="card-text">
+          Some quick example text to build on the card title
+          and make up the bulk of the card's content.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
