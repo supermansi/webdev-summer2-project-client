@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchServiceClient} from '../services/search.service.client';
-import {setRootDomAdapter} from '@angular/platform-browser/src/dom/dom_adapter';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +10,13 @@ import {setRootDomAdapter} from '@angular/platform-browser/src/dom/dom_adapter';
 export class HomeComponent implements OnInit {
 
   query;
-  results = [];
+  results = {
+    items: []
+  };
 
-  constructor(private searchService: SearchServiceClient) { }
-
+  constructor(private searchService: SearchServiceClient,
+              private router: Router,
+              private route: ActivatedRoute) { }
   ngOnInit() {
   }
 
@@ -22,6 +25,10 @@ export class HomeComponent implements OnInit {
       .search(query)
       .then(results => this.results = results);
     console.log(this.results);
+  }
+
+  description = id => {
+    this.router.navigate(['book/' + id]);
   }
 
 }

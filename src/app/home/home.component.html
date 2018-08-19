@@ -1,5 +1,5 @@
 <div class="container col-6">
-  <h1>Welcome to Liber Store</h1>
+  <h1>Welcome to Book Store</h1>
 
   Search query:
   <input  [(ngModel)]="query"
@@ -8,6 +8,8 @@
           (click)="search(query)">
     Search
   </button>
+
+  <!--<router-outlet></router-outlet>-->
 <!--
   <div class="card-deck">
 
@@ -24,7 +26,7 @@
 
   </div>-->
 
-  <div class="card-deck">
+  <!--<div class="card-deck">
 
     <div class="card w-25"
          *ngFor = "let course of results.items">
@@ -37,5 +39,13 @@
         </p>
       </div>
     </div>
-  </div>
+  </div>-->
+  <ul class="list-group">
+    <li *ngFor = "let course of results.items"
+        class="list-group-item"
+        (click)="description(course.id)">
+      <img src="{{course.volumeInfo.imageLinks.smallThumbnail}}"/>
+      {{course.volumeInfo.title}}
+    </li>
+  </ul>
 </div>

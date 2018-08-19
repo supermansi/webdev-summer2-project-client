@@ -1,0 +1,15 @@
+<div *ngIf="bookLoaded">
+  <div class="card">
+    <div class="card-body">
+      <img class="card-img float-right" src="{{book.items[0].volumeInfo.imageLinks.smallThumbnail}}" alt="Matilda" style="height: 200px; width: 250px ">
+      <h3 class="card-title">{{book.items[0].volumeInfo.title}}</h3>
+      <h4>Author: {{book.items[0].volumeInfo.authors}}</h4>
+      <h4>Publisher: {{book.items[0].volumeInfo.publisher}}</h4>
+      <h5>Pages: {{book.items[0].volumeInfo.pageCount}}</h5>
+      <h5>Categories: </h5>
+      <p class="card-text">
+        {{book.items[0].volumeInfo.description}}
+      </p>
+    </div>
+  </div>
+</div>
